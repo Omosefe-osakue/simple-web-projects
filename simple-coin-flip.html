@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Coin Flip Game</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            button {
+                margin: 5px;
+                padding: 5px 10px;
+            }
+            #result {
+                margin-top: 20px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Coin Flip Game</p>
+        <button onclick="
+            let guess = 'heads';
+            getGuess(guess);
+        ">Heads</button>
+
+        <button onclick="
+            let guess1 = 'tails';
+            getGuess(guess1);
+        ">Tails</button>
+
+        <script>
+            function getGuess(guess){
+                const randomNumber = Math.random();
+                let result = randomNumber < 0.5? 'heads' : 'tails';
+                alert(guess === result ? 'You Win!' : 'You lose!');
+            }
+            
+        </script>
+    </body>
+</html>
