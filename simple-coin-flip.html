@@ -32,10 +32,24 @@
         ">Tails</button>
 
         <script>
+            score = JSON.parse(localStorage.getItem('score')) || {
+                wins:0,
+                losses:0
+            };
+            JSON.parse(localStorage.getItem('score'));
             function getGuess(guess){
                 const randomNumber = Math.random();
                 let result = randomNumber < 0.5? 'heads' : 'tails';
-                alert(guess === result ? 'You Win!' : 'You lose!');
+                guess === result ? 'You Win!': 'You lose!';
+
+                if (guess === result){
+                    score.wins += 1 ;
+                }else{
+                    score.losses += 1;
+                }
+
+                localStorage.setItem('score',JSON.stringify(score));
+                alert(`Wins: ${score.wins}, Losses: ${score.losses}`);
             }
             
         </script>
